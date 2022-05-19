@@ -1,4 +1,4 @@
-class Coordinates:
+class Coordinate:
     def __init__(self, x, y, domain):
         self.x = x
         self.y = y
