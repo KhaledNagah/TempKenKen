@@ -31,7 +31,7 @@ class Coordinate:
         
     def is_in_domain(self,value):
         for i in self.domain:
-            if self.domain[i] == value:
+            if i == value:
                 return True 
         return False
 
@@ -46,5 +46,4 @@ class Coordinate:
 
     def get_value(self):
         return self.value    
-
 
