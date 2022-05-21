@@ -9,7 +9,7 @@ class board:
 
         ### initialize coordinates ###
         for i in range(1,size+1):
-            self.domain[i]=i
+            self.domain.append(i)
 
         for i in range(size):
             for j in range(size):
