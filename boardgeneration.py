@@ -1,11 +1,9 @@
 import numpy as np
-from board import board
 
-
- """
-    Creates a randomly generated board where there are no duplicates
-    in each row/column
-    """
+"""
+Creates a randomly generated board where there are no duplicates
+in each row/column
+"""
 def random_board(size):
    
     vals = list(range(1, size + 1))
@@ -109,9 +107,9 @@ end of stub classes
 '''
 
 
-    '''
-    Partitions a board size into a set of groups to add the arithmetic constraints
-    '''
+'''
+Partitions a board size into a set of groups to add the arithmetic constraints
+'''
 def partition_board(size, max_partition_size,
                     initial_choice_size_factor=2,
                     merge_size_factor=0.8,
@@ -152,13 +150,13 @@ def partition_board(size, max_partition_size,
 
     return partitions
   
- '''
- the partitioning function returns the coordinates as index so we have to change it to x and y
- '''
-def idxtocoord(partitions):
+'''
+the partitioning function returns the coordinates as index so we have to change it to x and y
+'''
+def idxtocoord(partitions,size):
     x=0
     z=0
-    partitioncoord = [[n//4,n%4] for i in partitions for n in i]
+    partitioncoord = [[int(n//size),n%size] for i in partitions for n in i]
     for i in partitions:
         for n in range(len(i)):
             partitions[x][n]=partitioncoord[z]
@@ -198,7 +196,13 @@ def addArithmeticConstraints(board,partitions,values):
         constraintslist.append(Arithmetic_Constraint(partitions[i],values[i]))
     for i in constraintslist:
         board.add_constraint(i)
-  
+    x=0
+    z=0
+    for i in partitions:
+        for n in range(len(i)):
+            coord=partitions[x][n]
+            coord.add_constraint(constraintslist[x])
+        x=x+1
   
 '''
 function that will sum up every step and return an object of board to be used in solving
@@ -207,10 +211,12 @@ function that will sum up every step and return an object of board to be used in
 
 def createBoard(size):
   board1=random_board(size)
+  print(board1)
   partitions=partition_board(size,size)
-  partitions=idxtocoord(partitions)
+  partitions=idxtocoord(partitions,size)
+  print(partitions)
   values=generatingsum(board1,partitions)
-  BOARD = board(sizeofboard)
-  BOARD.initialize_RCconstraint()
+  BOARD = board(size)
+  #BOARD.initialize_RCconstraint()
   addArithmeticConstraints(BOARD,partitions,values)
   return BOARD
