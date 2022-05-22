@@ -1,4 +1,6 @@
-####IMPORT CONSTRAINT AND COORDINATE CLASSES##################
+from coordinate import Coordinate
+#from constraint import RC_Constraint
+from constraint import Arithmetic_Constraint
 
 class board:
     def __init__(self, size):
@@ -8,12 +10,14 @@ class board:
         self.constraints = []
 
         ### initialize coordinates ###
-        for i in range(1,size+1):
-            self.domain.append(i)
-
         for i in range(size):
+            self.domain.append(i+1)
+
+        for z in range(size):
             for j in range(size):
-                p = Coordinate(i , j,self.domain )
+                coord_domain=list(range(1,self.size+1))
+                p = Coordinate(z , j,coord_domain )
+                p.set_value(0)
                 self.coordinates.append(p) 
 
 
@@ -52,9 +56,13 @@ class board:
     def get_constraints(self):
         return self.constraints
 
+    def get_domain(self):
+        return self.domain
     ### initialize row and colomns constraints ###
-    def initialize_RCconstraint(self):
-        for i in range(self.size):
-            self.constraints.append(RC_Constraint(self.get_row(i)))        
-            self.constraints.append(RC_Constraint(self.get_colomn(i)))        
-  
+    #def initialize_RCconstraint(self):
+    #    for i in range(self.size):
+    #        self.constraints.append(RC_Constraint(self.get_row(i)))        
+    #        self.constraints.append(RC_Constraint(self.get_colomn(i)))        
+    
+    def set_coordinate_value(self,x,y,value):
+        self.coordinates[(self.size)*x+y].set_value(value)

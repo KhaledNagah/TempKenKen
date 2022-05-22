@@ -28,30 +28,30 @@ class Arithmetic_Constraint:
             return True
         else:
             return False
+    def get_sum(self):
+        return self.sum
 
-
-
-class RC_Constraint:
-    def __init__(self, coordinates):
-        self.coordinates=coordinates
-        
-    def get_coordinates (self):
-        return self.coordinates
-
-    def includes_coordinate(self, coordinate):
-        for currentCoordinate in self.coordinates:
-            if currentCoordinate==coordinate:
-                return True 
-        return False   
-
-    def is_constraint_satisfied(self,values):
-        if len(values)!=len(self.coordinates):
-            return False
-
-        if len(values) == len(set(values)):
-            return True
-        else:
-            return False
+#class RC_Constraint:
+#    def __init__(self, coordinates):
+#        self.coordinates=coordinates
+#        
+#    def get_coordinates (self):
+#        return self.coordinates
+#
+#    def includes_coordinate(self, coordinate):
+#        for currentCoordinate in self.coordinates:
+#            if currentCoordinate==coordinate:
+#                return True 
+#        return False   
+#
+#    def is_constraint_satisfied(self,values):
+#        if len(values)!=len(self.coordinates):
+#            return False
+#
+#        if len(values) == len(set(values)):
+#            return True
+#        else:
+#            return False
 
 
 """
