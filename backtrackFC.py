@@ -2,7 +2,7 @@ from board import board
 from coordinate import Coordinate
 from constraint import Arithmetic_Constraint
 import copy
-class Back_Track:
+class Back_Track_FC:
     def __init__(self,board):
         self.board=board
         self.coordiantes=board.get_coordinates()
@@ -227,7 +227,7 @@ class Back_Track:
 #b.add_constraint(cons3)
 #b.add_constraint(cons4)
 #    
-#bt=Back_Track(b)
+#bt=Back_Track_FC(b)
 #bt.solve()
 
 
@@ -255,7 +255,7 @@ class Back_Track:
 #b.add_constraint(cons3)
 #b.add_constraint(cons4)
 #    
-#bt=Back_Track(b)
+#bt=Back_Track_FC(b)
 #bt.solve()
 
 
@@ -297,5 +297,5 @@ class Back_Track:
 #b.add_constraint(cons6)
 #b.add_constraint(cons7)
 #   
-#bt=Back_Track(b)
+#bt=Back_Track_FC(b)
 #bt.solve()
