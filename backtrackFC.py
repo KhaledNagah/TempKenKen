@@ -2,6 +2,9 @@ from board import board
 from coordinate import Coordinate
 from constraint import Arithmetic_Constraint
 import copy
+import pygame
+from gui import draw_board, instruction
+
 class Back_Track_FC:
     def __init__(self,board):
         self.board=board
@@ -45,15 +48,21 @@ class Back_Track_FC:
     def solve(self):
         return self.inner_solve (0)
 
-    def inner_solve(self,index): #index is the index of the current coordinate
+    def inner_solve(self,index): #index is the index of the current coordinate        
         
-        #For debugging to show the values of the coordinates at each step
-        for coord in self.board.get_coordinates():
-            print(coord.get_value())
-        print("################")
+        # #For debugging to show the values of the coordinates at each step
+        # for coord in self.board.get_coordinates():
+        #     print(coord.get_value())
+        # print("################")
 
         #Always check at the beggining of this recursive function if the board is solved, hence return true
         if self.is_solved():
+            # Draw generated board
+            draw_board(self.board)
+            instruction()
+            pygame.display.update()
+            pygame.event.pump()
+            pygame.time.delay(300)
             return True
 
         #If the board is not solved

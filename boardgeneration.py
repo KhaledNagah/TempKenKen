@@ -1,4 +1,8 @@
 import numpy as np
+from board import board
+from coordinate import Coordinate
+from constraint import Arithmetic_Constraint
+
 
 """
 Creates a randomly generated board where there are no duplicates
