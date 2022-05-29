@@ -11,3 +11,8 @@ sudo apt install python-numpy
 ```bash
 pip install pygame
 ```
+
+## Enter size of board in main.py then run this file
+```bash
+python main.py
+```
