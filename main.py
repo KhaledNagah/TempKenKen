@@ -10,6 +10,7 @@ from gui import *
 
 
 # size parametrized
+global size_of_board
 size_of_board = 6
 
 
@@ -22,7 +23,7 @@ coordinates= b5.coordinates
 
 ### RUNNING SECTION ###
 run = True
-val = 3
+val = 0
 solved = 0
 while run:
     instruction()
@@ -35,18 +36,86 @@ while run:
             run = False
 
         if event.type == pygame.KEYDOWN:
+            ## ENTER NUMBER FROM KEY BOARD TO GENERATE BOARD WITH THIS SIZE
+            if event.key == pygame.K_1:
+                #global size_of_board
+                size_of_board = 1
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_2:
+                size_of_board = 2
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_3:
+                size_of_board = 3
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_4:
+                size_of_board = 4
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_5:
+                size_of_board = 5
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_6:
+                size_of_board = 6
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_7:
+                size_of_board = 7
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_8:
+                size_of_board = 8
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()
+                val = 0
+
+            if event.key == pygame.K_9:
+                size_of_board = 9
+                b5 = createBoard(size_of_board)
+                draw_gen_board(b5)
+                pygame.display.update()  
+                val = 0
+
+
             # If R pressed clear the sudoku board
             if event.key == pygame.K_r:
                 draw_gen_board(b5)
                 pygame.display.update()
                 val = 0
 
+            # If N is pressed generate new board with same size
             if event.key == pygame.K_n:
                 b5 = createBoard(size_of_board)
                 draw_gen_board(b5)
                 pygame.display.update()
+                val = 0
 
-
+            ## ENTER ALGORITHM NUMBER TO BE SOLVED A OR B OR C
             if event.key == pygame.K_a:
                 val = 1 ## for backtracking
 
@@ -55,7 +124,9 @@ while run:
                 
             if event.key == pygame.K_c:
                 val = 3 ## for Arc Consistency
-                    
+
+              
+            ## PRESS ENTER TO GENERATE        
             if event.key == pygame.K_RETURN:
                 draw_gen_board(b5)
                 pygame.display.update()
