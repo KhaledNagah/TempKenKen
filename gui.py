@@ -133,12 +133,27 @@ def update_value(board, x, y, value):
     screen.blit(text1, (x * dif + 75, y * dif + 15))
 
 # Display instruction for the game
-def instruction():
-	text1 = font2.render("PRESS R TO RESET, N to RE-GENERATE!", 1, (255, 0, 0))
-	text2 = font2.render("ENTER ALGORITHM: PRESS A, B or C TO SOLVE!", 1, (255, 0, 0))
-	screen.blit(text1, (20, 620))	
-	screen.blit(text2, (20, 670))
+# def instruction():
+# 	text1 = font2.render("PRESS R TO RESET, N to RE-GENERATE!", 1, (255, 0, 0))
+# 	text2 = font2.render("ENTER ALGORITHM: PRESS A, B or C TO SOLVE!", 1, (255, 0, 0))
+# 	screen.blit(text1, (20, 620))	
+# 	screen.blit(text2, (20, 670))
     
+def instruction():
+    text1 = font2.render("PRESS 3,4,5,...,etc TO ENTER SIZE!", 1, (255, 0, 0))
+    text2 = font2.render("PRESS R TO RESET, N to RE-GENERATE!", 1, (255, 0, 0))
+    text3 = font2.render("ENTER ALGORITHM: PRESS A, B or C TO SOLVE!", 1, (255, 0, 0))
+    
+    screen.blit(text1, (20, 610))
+    screen.blit(text2, (20, 660))
+    screen.blit(text3, (20, 710))	
+	
+	
+
+
+
+
+
 
 # Display options when solved
 def result():
