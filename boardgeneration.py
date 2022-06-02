@@ -216,7 +216,7 @@ function that will sum up every step and return an object of board to be used in
 def createBoard(size):
   board1=random_board(size)
   print(board1)
-  partitions=partition_board(size,size)
+  partitions=partition_board(size,size+1)
   partitions=idxtocoord(partitions,size)
   print(partitions)
   values=generatingsum(board1,partitions)
