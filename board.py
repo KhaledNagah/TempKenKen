@@ -2,6 +2,7 @@ from coordinate import Coordinate
 #from constraint import RC_Constraint
 from constraint import Arithmetic_Constraint
 
+
 class board:
     def __init__(self, size):
         self.size = size
@@ -66,3 +67,4 @@ class board:
     
     def set_coordinate_value(self,x,y,value):
         self.coordinates[(self.size)*x+y].set_value(value)
+

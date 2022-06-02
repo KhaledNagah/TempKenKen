@@ -1,4 +1,5 @@
 from cProfile import run
+from AC import *
 from board import board
 from coordinate import Coordinate
 from constraint import Arithmetic_Constraint
@@ -9,16 +10,19 @@ from gui import *
 
 
 # size parametrized
-size_of_board = 5
+size_of_board = 7
 
 
 # generate board
 b5 = createBoard(size_of_board)
+print(b5.get_size())
+
+coordinates= b5.coordinates
 
 
 ### RUNNING SECTION ###
 run = True
-val = 0
+val = 3
 while run:
     instruction()
 
@@ -67,9 +71,20 @@ while run:
         if(val == 2):
             bt_fc=Back_Track_FC(b5)
             bt_fc.solve()
-   
-
+        
+        if(val == 3):
+            bt_ac=AC(b5)
+            bt_ac.solve()
+            pygame.time.delay(1000)
     pygame.display.update()
-
+    #pygame.time.delay(1000)
 pygame.quit()
+"""=
+coordinates= b5.coordinates
+for i in range (size_of_board * size_of_board):
+    print(coordinates[i].get_x())
+    print(coordinates[i].get_y())
+    print(coordinates[i].get_value())
+
+"""
 

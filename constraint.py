@@ -1,7 +1,5 @@
 from coordinate import Coordinate
 
-
-
 class Arithmetic_Constraint:
     def __init__(self, coordinates, sum):
         self.coordinates=coordinates
@@ -16,10 +14,17 @@ class Arithmetic_Constraint:
                 return True 
         return False   
 
+    #Function to determine the num ber of cells filled 
+    def cells_filled(self):
+        number = 0
+        for i in self.coordinates:
+            if(i.get_value() > 0):
+                number = number + 1
+        return number
+
     def is_constraint_satisfied(self,values):
         if len(values)!=len(self.coordinates):
             return False
-
         currentSum=0
         for value in values:
             currentSum+=value
@@ -30,6 +35,7 @@ class Arithmetic_Constraint:
             return False
     def get_sum(self):
         return self.sum
+
 
 #class RC_Constraint:
 #    def __init__(self, coordinates):

@@ -5,6 +5,7 @@ class Coordinate:
         self.domain = domain
         self.domainSize = len(domain)
         self.value = 0
+        #self.constraint = 0
 
     def get_x(self):
         return self.x
@@ -46,3 +47,4 @@ class Coordinate:
 
     def get_value(self):
         return self.value    
+
