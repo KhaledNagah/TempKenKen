@@ -150,7 +150,7 @@ while run:
             solved = 1
             pygame.time.delay(1000)
     pygame.display.update()
-    pygame.time.delay(1500)
+    #pygame.time.delay(1500)
 pygame.quit()
 
 
