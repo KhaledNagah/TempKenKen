@@ -80,6 +80,7 @@ class AC:
         instruction()
         pygame.display.update()
         pygame.event.pump()
+        pygame.time.delay(3000)
         return result
 
     def inner_solve(self,index): #index is the index of the current coordinate        

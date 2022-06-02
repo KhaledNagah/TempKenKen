@@ -10,7 +10,7 @@ from gui import *
 
 
 # size parametrized
-size_of_board = 7
+size_of_board = 6
 
 
 # generate board
@@ -23,6 +23,7 @@ coordinates= b5.coordinates
 ### RUNNING SECTION ###
 run = True
 val = 3
+solved = 0
 while run:
     instruction()
 
@@ -72,19 +73,15 @@ while run:
             bt_fc=Back_Track_FC(b5)
             bt_fc.solve()
         
-        if(val == 3):
+        if(val == 3 and solved == 0):
             bt_ac=AC(b5)
             bt_ac.solve()
+            solved = 1
             pygame.time.delay(1000)
     pygame.display.update()
-    #pygame.time.delay(1000)
+    pygame.time.delay(1500)
 pygame.quit()
-"""=
-coordinates= b5.coordinates
-for i in range (size_of_board * size_of_board):
-    print(coordinates[i].get_x())
-    print(coordinates[i].get_y())
-    print(coordinates[i].get_value())
 
-"""
+
+
 
